@@ -12,12 +12,10 @@ included:
 # Exclude generated files and third-party code
 excluded:
   - VIPERSample/Assets.xcassets
-  - VIPERSample/Base.lproj
   - VIPERSample/Info.plist
+  - VIPERSample/Generated
   - VIPERSampleTests
   - VIPERSampleUITests
-  - Pods
-  - Carthage
   - build
 
 # =============================================================================
@@ -269,8 +267,8 @@ custom_rules:
   # Ensure VIPER protocol naming conventions
   viper_protocol_naming:
     included: ".*\\.swift"
-    regex: "protocol\\s+\\w+(?<!Protocol)\\s*:"
-    message: "VIPER protocols should end with 'Protocol' (e.g., ViewProtocol, PresenterProtocol)"
+    regex: "protocol\\s+\\w+(?<!Protocol|Wireframe)\\s*:"
+    message: "VIPER protocols should end with 'Protocol' or 'Wireframe' (e.g., ViewProtocol, PresenterProtocol, RootWireframe)"
     severity: warning
 
   # Discourage force unwrapping in production code
@@ -294,6 +292,6 @@ custom_rules:
   # Ensure proper naming for VIPER components
   viper_component_naming:
     included: ".*\\.swift"
-    regex: "(class|struct)\\s+(\\w+)(?<!View|Interactor|Presenter|Entity|Router|Protocol)\\s*:"
-    message: "VIPER components should be suffixed with their layer name (View, Interactor, Presenter, Entity, Router)"
+    regex: "(class|struct)\\s+(\\w+)(?<!View|Interactor|Presenter|Entity|Router|Wireframe|Protocol|Delegate|Manager|Service|Helper|Utility|ViewController)\\s*:"
+    message: "VIPER components should be suffixed with their layer name (View, Interactor, Presenter, Entity, Router, Wireframe)"
     severity: warning
