@@ -17,7 +17,7 @@ xcassets:
 # Generate constants for storyboards and XIBs
 ib:
   inputs:
-    - VIPERSample/Base.lproj
+    - VIPERSample/View/Storyboards
   outputs:
     - templateName: scenes-swift5
       output: Storyboards+Generated.swift
