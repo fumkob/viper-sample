@@ -9,7 +9,7 @@ This project is designed as sample code for understanding and practicing the VIP
 ## Tech Stack
 
 - **iOS**: 26.0+
-- **Swift**: 5.0
+- **Swift**: 6.0
 - **Xcode**: 16
 - **Architecture**: VIPER
 - **Testing**: Swift Testing

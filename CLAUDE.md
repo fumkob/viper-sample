@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is an iOS Swift application following the VIPER (View, Interactor, Presenter, Entity, Router) architectural pattern. The project uses Xcode 16 (Swift 5.0) and targets iOS 26.0+ with support for both iPhone and iPad.
+This is an iOS Swift application following the VIPER (View, Interactor, Presenter, Entity, Router) architectural pattern. The project uses Xcode 16 (Swift 6.0) and targets iOS 26.0+ with support for both iPhone and iPad.
 
 ## Build Commands
 
@@ -83,7 +83,7 @@ ModuleName/
 
 - **Bundle Identifier:** com.fumkob.VIPERSample
 - **Deployment Target:** iOS 26.0
-- **Swift Version:** 5.0 with modern concurrency enabled
+- **Swift Version:** 6.0 with modern concurrency enabled
 - **Code Signing:** Automatic
 - **Supported Orientations:** Portrait, Landscape Left, Landscape Right (iPhone); All orientations (iPad)
 - **Testing Framework:** Swift Testing (not XCTest)
@@ -96,3 +96,15 @@ ModuleName/
 4. Write unit tests for Interactors and Presenters
 5. Write UI tests for complete user flows
 6. Follow iOS naming conventions and Swift style guidelines
+
+## Documentation Maintenance
+
+**Important:** When performing any development work on this project, always ensure that documentation files (README.md, CLAUDE.md) are kept up-to-date with any changes made. This includes:
+
+- Adding new modules or components to the project structure
+- Updating build or test commands if they change
+- Modifying architectural patterns or guidelines
+- Adding new dependencies or configuration changes
+- Updating workflow processes or conventions
+
+Documentation should accurately reflect the current state of the project at all times.
