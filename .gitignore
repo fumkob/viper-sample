@@ -38,3 +38,5 @@ fastlane/test_output
 
 # AI
 .claude/
+.serena/
+.mcp.json
