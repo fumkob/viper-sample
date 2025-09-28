@@ -8,4 +8,11 @@
 import UIKit
 
 
-class RootViewController: UIViewController {}
+class RootViewController: UIViewController {
+    var presenter: RootModuleInterface!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        presenter.showDashboard()
+    }
+}

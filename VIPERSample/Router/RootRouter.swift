@@ -15,7 +15,10 @@ class RootRouter: RootWireframe {
     func presentRoot(in window: UIWindow) {
         window.makeKeyAndVisible()
         let storyboard = StoryboardScene.Root.initialScene
-        let rootViewController = storyboard.instantiate()
-        window.rootViewController = rootViewController
+        let view = storyboard.instantiate()
+        let presenter = RootPresenter()
+
+        view.presenter = presenter
+        window.rootViewController = view
     }
 }
