@@ -36,3 +36,5 @@ fastlane/test_output
 
 .DS_Store 
 
+# AI
+.claude/

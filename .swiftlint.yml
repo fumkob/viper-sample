@@ -1,0 +1,299 @@
+# SwiftLint Configuration for VIPER iOS Project
+# For more information: https://github.com/realm/SwiftLint
+
+# =============================================================================
+# PATHS CONFIGURATION
+# =============================================================================
+
+# Include specific paths
+included:
+  - VIPERSample
+
+# Exclude generated files and third-party code
+excluded:
+  - VIPERSample/Assets.xcassets
+  - VIPERSample/Base.lproj
+  - VIPERSample/Info.plist
+  - VIPERSampleTests
+  - VIPERSampleUITests
+  - Pods
+  - Carthage
+  - build
+
+# =============================================================================
+# GENERAL SETTINGS
+# =============================================================================
+
+# Treat warnings as errors for CI/CD
+strict: false
+
+# Allow zero lintable files without failing
+allow_zero_lintable_files: false
+
+# Reporter type (options: xcode, json, csv, checkstyle, junit, html, emoji)
+reporter: "xcode"
+
+# =============================================================================
+# DISABLED RULES
+# =============================================================================
+
+disabled_rules:
+  # Disable rules that conflict with team preferences or VIPER architecture
+  - todo                       # Allow TODO comments during development
+
+# =============================================================================
+# OPT-IN RULES
+# =============================================================================
+
+opt_in_rules:
+  # Code Quality
+  - anyobject_protocol
+  - array_init
+  - attributes_order
+  - closure_body_length
+  - closure_end_indentation
+  - closure_spacing
+  - collection_alignment
+  - contains_over_filter_count
+  - contains_over_filter_is_empty
+  - contains_over_first_not_nil
+  - contains_over_range_nil_comparison
+  - convenience_type
+  - discouraged_object_literal
+  - empty_collection_literal
+  - empty_count
+  - empty_string
+  - empty_xctest_method
+  - enum_case_associated_values_count
+  - explicit_init
+  - extension_access_modifier
+  - fallthrough
+  - fatal_error_message
+  - file_name
+  - file_name_no_space
+  - first_where
+  - flatmap_over_map_reduce
+  - force_unwrapping
+  - function_default_parameter_at_end
+  - identical_operands
+  - implicit_return
+  - joined_default_parameter
+  - last_where
+  - literal_expression_end_indentation
+  - lower_acl_than_parent
+  - modifier_order
+  - multiline_arguments
+  - multiline_function_chains
+  - multiline_literal_brackets
+  - multiline_parameters
+  - multiline_parameters_brackets
+  - nimble_operator
+  - nslocalizedstring_key
+  - nslocalizedstring_require_bundle
+  - number_separator
+  - object_literal
+  - operator_usage_whitespace
+  - optional_enum_case_matching
+  - overridden_super_call
+  - override_in_extension
+  - pattern_matching_keywords
+  - prefer_self_type_over_type_of_self
+  - prefer_zero_over_explicit_init
+  - prefixed_toplevel_constant
+  - prohibited_interface_builder
+  - prohibited_super_call
+  - quick_discouraged_call
+  - quick_discouraged_focused_test
+  - quick_discouraged_pending_test
+  - reduce_into
+  - redundant_nil_coalescing
+  - redundant_type_annotation
+  - required_enum_case
+  - single_test_class
+  - sorted_first_last
+  - sorted_imports
+  - static_operator
+  - strong_iboutlet
+  - switch_case_on_newline
+  - toggle_bool
+  - trailing_closure
+  - unavailable_function
+  - unneeded_parentheses_in_closure_argument
+  - unowned_variable_capture
+  - untyped_error_in_catch
+  - vertical_parameter_alignment_on_call
+  - vertical_whitespace_closing_braces
+  - vertical_whitespace_opening_braces
+  - weak_delegate
+  - xct_specific_matcher
+  - yoda_condition
+
+# =============================================================================
+# ANALYZER RULES
+# =============================================================================
+
+analyzer_rules:
+  - explicit_self
+  - unused_declaration
+  - unused_import
+
+# =============================================================================
+# RULE CONFIGURATIONS
+# =============================================================================
+
+# Line length
+line_length:
+  warning: 120
+  error: 150
+  ignores_urls: true
+  ignores_function_declarations: true
+  ignores_comments: true
+  ignores_interpolated_strings: true
+
+# File length
+file_length:
+  warning: 400
+  error: 500
+  ignore_comment_only_lines: true
+
+# Function body length
+function_body_length:
+  warning: 60
+  error: 100
+
+# Function parameter count
+function_parameter_count:
+  warning: 5
+  error: 8
+
+# Type body length
+type_body_length:
+  warning: 250
+  error: 350
+
+# Type name
+type_name:
+  min_length: 3
+  max_length:
+    warning: 40
+    error: 50
+  excluded:
+    - "T"      # Generic type parameter
+    - "U"      # Generic type parameter
+    - "V"      # Generic type parameter
+    - "ID"     # Common identifier type
+  allowed_symbols: ["_"]
+
+# Identifier name
+identifier_name:
+  min_length:
+    warning: 3
+    error: 2
+  max_length:
+    warning: 40
+    error: 60
+  excluded:
+    - "id"     # Common identifier
+    - "ID"     # Common identifier
+    - "URL"    # URL type
+    - "x"      # Common coordinate
+    - "y"      # Common coordinate
+    - "i"      # Loop counter
+    - "j"      # Loop counter
+    - "vc"     # View controller abbreviation
+    - "vm"     # View model abbreviation
+    - "ui"     # UI abbreviation
+  allowed_symbols: ["_"]
+
+# Nesting level
+nesting:
+  type_level:
+    warning: 2
+    error: 3
+  function_level:
+    warning: 3
+    error: 4
+
+# Cyclomatic complexity
+cyclomatic_complexity:
+  warning: 10
+  error: 20
+  ignores_case_statements: true
+
+# Large tuple
+large_tuple:
+  warning: 3
+  error: 4
+
+# Closure body length
+closure_body_length:
+  warning: 20
+  error: 40
+
+# Enum case associated values count
+enum_case_associated_values_count:
+  warning: 5
+  error: 6
+
+# Force cast severity
+force_cast: warning
+
+# Force try severity
+force_try: warning
+
+# Force unwrapping severity
+force_unwrapping: warning
+
+# Multiline arguments
+multiline_arguments:
+  first_argument_location: next_line
+  only_enforce_after_first_closure_on_first_line: true
+
+# Multiline parameters
+multiline_parameters:
+  allows_single_line: true
+
+# Trailing comma
+trailing_comma:
+  mandatory_comma: true
+
+# Vertical whitespace
+vertical_whitespace:
+  max_empty_lines: 2
+
+# =============================================================================
+# CUSTOM RULES FOR VIPER ARCHITECTURE
+# =============================================================================
+
+custom_rules:
+  # Ensure VIPER protocol naming conventions
+  viper_protocol_naming:
+    included: ".*\\.swift"
+    regex: "protocol\\s+\\w+(?<!Protocol)\\s*:"
+    message: "VIPER protocols should end with 'Protocol' (e.g., ViewProtocol, PresenterProtocol)"
+    severity: warning
+
+  # Discourage force unwrapping in production code
+  no_force_unwrapping_in_production:
+    included: ".*\\.swift"
+    excluded: ".*Test.*\\.swift"
+    regex: "\\S+!"
+    message: "Avoid force unwrapping in production code. Use optional binding or guard statements instead."
+    severity: warning
+    match_kinds:
+      - identifier
+      - keyword
+
+  # Encourage proper error handling
+  empty_catch_blocks:
+    included: ".*\\.swift"
+    regex: "catch\\s*\\{\\s*\\}"
+    message: "Empty catch blocks should handle errors appropriately or add a comment explaining why it's safe to ignore."
+    severity: warning
+
+  # Ensure proper naming for VIPER components
+  viper_component_naming:
+    included: ".*\\.swift"
+    regex: "(class|struct)\\s+(\\w+)(?<!View|Interactor|Presenter|Entity|Router|Protocol)\\s*:"
+    message: "VIPER components should be suffixed with their layer name (View, Interactor, Presenter, Entity, Router)"
+    severity: warning

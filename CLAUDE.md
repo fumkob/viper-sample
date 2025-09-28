@@ -40,6 +40,28 @@ xcodebuild test -project VIPERSample.xcodeproj -scheme VIPERSample -destination 
 xcodebuild test -project VIPERSample.xcodeproj -scheme VIPERSample -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest' -only-testing:VIPERSampleTests/VIPERSampleTests/example
 ```
 
+## Linting Commands
+
+**Lint all Swift files:**
+```bash
+swiftlint
+```
+
+**Auto-fix linting issues:**
+```bash
+swiftlint --fix
+```
+
+**Lint specific files:**
+```bash
+swiftlint lint --path VIPERSample/ViewController.swift
+```
+
+**Lint with specific configuration:**
+```bash
+swiftlint --config .swiftlint.yml
+```
+
 ## Project Structure
 
 **Core Application:**

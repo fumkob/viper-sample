@@ -13,6 +13,7 @@ This project is designed as sample code for understanding and practicing the VIP
 - **Xcode**: 16
 - **Architecture**: VIPER
 - **Testing**: Swift Testing
+- **Code Quality**: SwiftLint
 
 ## Development
 
@@ -22,6 +23,12 @@ xcodebuild -project VIPERSample.xcodeproj -scheme VIPERSample build
 
 # Run tests
 xcodebuild test -project VIPERSample.xcodeproj -scheme VIPERSample -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest'
+
+# Lint code
+swiftlint
+
+# Auto-fix linting issues
+swiftlint --fix
 ```
 
 ## VIPER Architecture
