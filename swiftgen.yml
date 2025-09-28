@@ -1,0 +1,35 @@
+# SwiftGen Configuration for VIPERSample
+# This file configures automatic code generation for project resources
+
+# Generated files will be placed in VIPERSample/Generated/
+output_dir: VIPERSample/Generated/
+
+# Generate constants for Assets Catalogs (images, colors, etc.)
+xcassets:
+  inputs:
+    - VIPERSample/Assets.xcassets
+  outputs:
+    - templateName: swift5
+      params:
+        forceProvidesNamespaces: true
+      output: Assets+Generated.swift
+
+# Generate constants for storyboards and XIBs
+ib:
+  inputs:
+    - VIPERSample/Base.lproj
+  outputs:
+    - templateName: scenes-swift5
+      output: Storyboards+Generated.swift
+    - templateName: segues-swift5
+      output: Segues+Generated.swift
+
+
+## There are other parsers available for you to use depending on your needs, for example:
+##  - `fonts` (if you have custom ttf/ttc font files)
+##  - `coredata` (for CoreData models)
+##  - `json`, `yaml` and `plist` (to parse custom JSON/YAML/Plist files and generate code from their content)
+## …
+##
+## For more info, use `swiftgen config doc` to open the full documentation on GitHub.
+## https://github.com/SwiftGen/SwiftGen/tree/6.6.3/Documentation/

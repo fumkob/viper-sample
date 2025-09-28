@@ -40,6 +40,20 @@ xcodebuild test -project VIPERSample.xcodeproj -scheme VIPERSample -destination 
 xcodebuild test -project VIPERSample.xcodeproj -scheme VIPERSample -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest' -only-testing:VIPERSampleTests/VIPERSampleTests/example
 ```
 
+## Development Tools Setup
+
+This project uses [mise](https://mise.jdx.dev/) for development tool version management. Ensure you have mise installed and run:
+
+```bash
+# Install project-specific tool versions (first time setup)
+mise install
+
+# Tools will be automatically activated when in project directory
+# Verify installation:
+swiftlint --version  # Should show 0.61.0
+swiftgen --version   # Should show 6.6.3
+```
+
 ## Linting Commands
 
 **Lint all Swift files:**
@@ -62,6 +76,30 @@ swiftlint lint --path VIPERSample/ViewController.swift
 swiftlint --config .swiftlint.yml
 ```
 
+**Force use mise version (if needed):**
+```bash
+mise exec -- swiftlint
+```
+
+## Code Generation Commands
+
+**Generate constants from Assets/Strings/Storyboards:**
+```bash
+swiftgen
+```
+
+**Initialize SwiftGen configuration (already done):**
+```bash
+swiftgen config init
+```
+
+**Generate specific resource types:**
+```bash
+swiftgen run xcassets  # Generate from Assets.xcassets
+swiftgen run strings   # Generate from localized strings
+swiftgen run ib        # Generate from storyboards/XIBs
+```
+
 ## Project Structure
 
 **Core Application:**
@@ -78,6 +116,11 @@ swiftlint --config .swiftlint.yml
 **Resources:**
 - `Assets.xcassets/` - App icons, colors, and image assets
 - `Base.lproj/` - Storyboard files and localization base
+
+**Development Tools:**
+- `mise.toml` - Tool version management configuration
+- `.swiftlint.yml` - SwiftLint rules and configuration
+- `swiftgen.yml` - SwiftGen code generation configuration
 
 ## VIPER Architecture Guidelines
 
@@ -112,12 +155,23 @@ ModuleName/
 
 ## Development Workflow
 
-1. Create VIPER modules in separate directories under `VIPERSample/`
-2. Replace the default `ViewController.swift` with VIPER module entry points
-3. Use storyboards for basic UI layout, programmatic UI for complex interactions
-4. Write unit tests for Interactors and Presenters
-5. Write UI tests for complete user flows
-6. Follow iOS naming conventions and Swift style guidelines
+1. **Setup Development Environment:**
+   - Install mise: `curl https://mise.jdx.dev/install.sh | sh`
+   - Install project tools: `mise install`
+   - Verify tools: `swiftlint --version && swiftgen --version`
+
+2. **Code Quality Workflow:**
+   - Run SwiftLint before committing: `swiftlint`
+   - Auto-fix style issues: `swiftlint --fix`
+   - Generate resource constants: `swiftgen` (when adding new assets/strings)
+
+3. **VIPER Module Development:**
+   - Create VIPER modules in separate directories under `VIPERSample/`
+   - Replace the default `ViewController.swift` with VIPER module entry points
+   - Use storyboards for basic UI layout, programmatic UI for complex interactions
+   - Write unit tests for Interactors and Presenters
+   - Write UI tests for complete user flows
+   - Follow iOS naming conventions and Swift style guidelines
 
 ## Documentation Maintenance
 
