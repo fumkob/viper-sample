@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5064D78E2E89636700EEB772 /* SwiftUIView in Frameworks */ = {isa = PBXBuildFile; productRef = 5064D78D2E89636700EEB772 /* SwiftUIView */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		500E68D72E88FE0E00F5B59E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -65,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5064D78E2E89636700EEB772 /* SwiftUIView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +130,7 @@
 			);
 			name = VIPERSample;
 			packageProductDependencies = (
+				5064D78D2E89636700EEB772 /* SwiftUIView */,
 			);
 			productName = VIPERSample;
 			productReference = 500E68C02E88FE0C00F5B59E /* VIPERSample.app */;
@@ -208,6 +214,9 @@
 			);
 			mainGroup = 500E68B72E88FE0C00F5B59E;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				5064D78C2E89636700EEB772 /* XCLocalSwiftPackageReference "Packages/SwiftUIView" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 500E68C12E88FE0C00F5B59E /* Products */;
 			projectDirPath = "";
@@ -583,6 +592,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		5064D78C2E89636700EEB772 /* XCLocalSwiftPackageReference "Packages/SwiftUIView" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/SwiftUIView;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5064D78D2E89636700EEB772 /* SwiftUIView */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SwiftUIView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 500E68B82E88FE0C00F5B59E /* Project object */;
 }
