@@ -17,13 +17,6 @@ internal enum StoryboardScene {
 
     internal static let initialScene = InitialSceneType<UIKit.UIViewController>(storyboard: Self.self)
   }
-  internal enum Root: StoryboardType {
-    internal static let storyboardName = "Root"
-
-    internal static let initialScene = InitialSceneType<RootViewController>(storyboard: Self.self)
-
-    internal static let root = SceneType<RootViewController>(storyboard: Self.self, identifier: "Root")
-  }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name
 

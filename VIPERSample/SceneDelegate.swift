@@ -17,8 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         guard let window = window else { return }
 
+        let coordinator = FactoryCoordinator()
         let rootRouter = RootRouter()
-        rootRouter.presentRoot(in: window)
+        rootRouter.presentRoot(in: window, coordinator: coordinator)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

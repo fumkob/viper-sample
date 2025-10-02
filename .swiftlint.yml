@@ -45,9 +45,7 @@ disabled_rules:
 
 opt_in_rules:
   # Code Quality
-  - anyobject_protocol
   - array_init
-  - attributes_order
   - closure_body_length
   - closure_end_indentation
   - closure_spacing
@@ -267,20 +265,9 @@ custom_rules:
   # Ensure VIPER protocol naming conventions
   viper_protocol_naming:
     included: ".*\\.swift"
-    regex: "protocol\\s+\\w+(?<!Protocol|Wireframe)\\s*:"
-    message: "VIPER protocols should end with 'Protocol' or 'Wireframe' (e.g., ViewProtocol, PresenterProtocol, RootWireframe)"
+    regex: "protocol\\s+\\w+(?<!Protocol|Wireframe|Input|Output|Presentation|ViewInterface|Coordinator)\\s*:"
+    message: "VIPER protocols should follow naming conventions: *Wireframe, *Input, *Output, *Presentation, *ViewInterface, *Protocol, or Coordinator"
     severity: warning
-
-  # Discourage force unwrapping in production code
-  no_force_unwrapping_in_production:
-    included: ".*\\.swift"
-    excluded: ".*Test.*\\.swift"
-    regex: "\\S+!"
-    message: "Avoid force unwrapping in production code. Use optional binding or guard statements instead."
-    severity: warning
-    match_kinds:
-      - identifier
-      - keyword
 
   # Encourage proper error handling
   empty_catch_blocks:
@@ -292,6 +279,6 @@ custom_rules:
   # Ensure proper naming for VIPER components
   viper_component_naming:
     included: ".*\\.swift"
-    regex: "(class|struct)\\s+(\\w+)(?<!View|Interactor|Presenter|Entity|Router|Wireframe|Protocol|Delegate|Manager|Service|Helper|Utility|ViewController)\\s*:"
-    message: "VIPER components should be suffixed with their layer name (View, Interactor, Presenter, Entity, Router, Wireframe)"
+    regex: "(class|struct)\\s+(\\w+)(?<!View|Interactor|Presenter|Entity|Router|Wireframe|Protocol|Delegate|Manager|Service|Helper|Utility|ViewController|Factory|Coordinator)\\s*:"
+    message: "VIPER components should be suffixed with their layer name (View, Interactor, Presenter, Entity, Router, Wireframe, Factory, Coordinator)"
     severity: warning

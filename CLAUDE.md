@@ -8,14 +8,14 @@ This is an iOS Swift application following the VIPER (View, Interactor, Presente
 
 ## Build Commands
 
-**Build the app:**
+**Build the app (for simulator):**
 ```bash
-xcodebuild -project VIPERSample.xcodeproj -scheme VIPERSample -configuration Debug build
+xcodebuild -project VIPERSample.xcodeproj -scheme VIPERSample -destination 'platform=iOS Simulator,name=iPhone 17' -configuration Debug build
 ```
 
 **Build for release:**
 ```bash
-xcodebuild -project VIPERSample.xcodeproj -scheme VIPERSample -configuration Release build
+xcodebuild -project VIPERSample.xcodeproj -scheme VIPERSample -destination 'platform=iOS Simulator,name=iPhone 17' -configuration Release build
 ```
 
 **Clean build:**
@@ -23,21 +23,26 @@ xcodebuild -project VIPERSample.xcodeproj -scheme VIPERSample -configuration Rel
 xcodebuild -project VIPERSample.xcodeproj -scheme VIPERSample clean
 ```
 
+**List available simulators:**
+```bash
+xcrun simctl list devices available | grep "iPhone"
+```
+
 ## Testing Commands
 
 **Run unit tests:**
 ```bash
-xcodebuild test -project VIPERSample.xcodeproj -scheme VIPERSample -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest'
+xcodebuild test -project VIPERSample.xcodeproj -scheme VIPERSample -destination 'platform=iOS Simulator,name=iPhone 17'
 ```
 
 **Run UI tests:**
 ```bash
-xcodebuild test -project VIPERSample.xcodeproj -scheme VIPERSample -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest' -only-testing:VIPERSampleUITests
+xcodebuild test -project VIPERSample.xcodeproj -scheme VIPERSample -destination 'platform=iOS Simulator,name=iPhone 17' -only-testing:VIPERSampleUITests
 ```
 
 **Run specific unit test:**
 ```bash
-xcodebuild test -project VIPERSample.xcodeproj -scheme VIPERSample -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest' -only-testing:VIPERSampleTests/VIPERSampleTests/example
+xcodebuild test -project VIPERSample.xcodeproj -scheme VIPERSample -destination 'platform=iOS Simulator,name=iPhone 17' -only-testing:VIPERSampleTests/VIPERSampleTests/example
 ```
 
 ## Development Tools Setup

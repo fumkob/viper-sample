@@ -8,17 +8,17 @@
 import UIKit
 
 protocol RootWireframe: AnyObject {
-    func presentRoot(in window: UIWindow)
+    func presentRoot(in window: UIWindow, coordinator: FactoryCoordinator)
 }
 
 class RootRouter: RootWireframe {
-    func presentRoot(in window: UIWindow) {
-        window.makeKeyAndVisible()
-        let storyboard = StoryboardScene.Root.initialScene
-        let view = storyboard.instantiate()
-        let presenter = RootPresenter()
+    private var window: UIWindow?
 
-        view.presenter = presenter
+    func presentRoot(in window: UIWindow, coordinator: FactoryCoordinator) {
+        let view = coordinator.dashboardFactory.makeModule()
         window.rootViewController = view
+        window.makeKeyAndVisible()
+
+        self.window = window
     }
 }
